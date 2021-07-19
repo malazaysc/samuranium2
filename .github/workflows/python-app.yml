@@ -19,9 +19,6 @@ jobs:
     steps:
       # Checks-out the techprop repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
-      # Install google chrome
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
       #----------------------------------------------
       #  -----  install & configure poetry  -----      
       #----------------------------------------------
