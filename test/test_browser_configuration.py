@@ -1,4 +1,5 @@
 import unittest
+import os
 from pathlib import Path
 
 from Samuranium import Samuranium
@@ -33,6 +34,7 @@ class BrowserConfigurationsTest(unittest.TestCase):
         self.assertTrue('-headless' in self.samu.driver_manager.chrome_options)
         self.assertEqual(self.samu.driver.capabilities.get('browserName'), 'chrome')
 
+    @unittest.skipIf(os.getenv('CI', False), 'Running on CI')
     def test_browser_chrome_not_headless_args(self):
         """
         Tests that chrome browser is started.
