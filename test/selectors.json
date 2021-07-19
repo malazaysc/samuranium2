@@ -1,0 +1,14 @@
+{
+  "strategies:": {
+    "css": [],
+    "xpath": []
+  },
+  "elements": {
+    "xpath": {
+      "searchInput": "//input[@placeholder='search']"
+    },
+    "css": {
+      "searchInput": ""
+    }
+  }
+}

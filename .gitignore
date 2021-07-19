@@ -1,0 +1,6 @@
+htmlcov
+.DS_Store
+.coverage
+dist
+.idea
+__pycache__

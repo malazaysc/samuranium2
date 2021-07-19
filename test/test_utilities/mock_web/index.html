@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let waitTime = 1;
+        if (urlParams.has('wait')) {
+            waitTime = urlParams.get('wait');
+        }
+        const newElement = document.createElement('div');
+        newElement.classList.add('wait-for-class')
+        const newContent = document.createTextNode(`This element shows after ${waitTime}
+        second${waitTime > 1 ? 's' : ''}`);
+        newElement.appendChild(newContent);
+        setTimeout(() => document.querySelector('body').appendChild(newElement), 1000 * waitTime);
+    </script>
+    <script>
+        const counter = document.createElement("h3")
+        counter.classList.add('counter')
+        counter.textContent = '0'
+        document.body.appendChild(counter);
+        const counterBtn = document.createElement("button")
+        counterBtn.classList.add('counterBtn')
+        counterBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            const currentValue = parseInt(counter.textContent)
+            counter.textContent = `${currentValue + 1}`;
+        });
+        counterBtn.textContent = 'add'
+        document.body.appendChild(counterBtn);
+
+    </script>
+    <div class="class-title">Class Title</div>
+    <div name="name-title">Name Title</div>
+    <div id="id-title">Id Title</div>
+    <a href="index.html">This is the index link</a>
+    <a href="index2.html">This is the index link for partial link text</a>
+    <h2>Tag Title</h2>
+    <label for="search">Search something:</label>
+    <label>
+        <input name="search" placeholder="search" >
+    </label>
+
+
+    <div class="title">Title</div>
+    <div class="title">Title</div>
+    <div class="title">Title</div>
+
+</body>
+</html>
