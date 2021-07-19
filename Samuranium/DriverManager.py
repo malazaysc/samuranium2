@@ -30,15 +30,15 @@ class DriverManager:
 
     def __get_chrome(self) -> webdriver:
         self.options = ChromeOptions()
+
         if self.headless:
             self.logger.debug('Starting chrome in headless mode')
+            self.options.headless = True
             self.options.add_argument('-headless')
             self.options.add_argument("-disable-gpu")
             self.options.add_argument("--no-sandbox")
             self.options.add_argument("--disable-dev-shm-usage")
             self.options.add_argument("--remote-debugging-port=9222")
-            self.options.binary_location = \
-                '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
             return webdriver.Chrome(executable_path=ChromeDriverManager().install(),
                                     options=self.options)
         self.logger.debug('Starting chrome')

@@ -1,0 +1,4 @@
+[browser]
+browser = chrome
+headless = true
+max_wait_time = 3
