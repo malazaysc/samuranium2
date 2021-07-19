@@ -19,12 +19,9 @@ jobs:
     steps:
       # Checks-out the techprop repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
-
-      # Install yarn dependencies
-      - name: yarn install
-        run: |
-          yarn install
-
+      # Install google chrome
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
       #----------------------------------------------
       #  -----  install & configure poetry  -----      
       #----------------------------------------------
@@ -53,12 +50,6 @@ jobs:
       #----------------------------------------------      
       - name: Install library
         run: poetry install --no-interaction
-      #----------------------------------------------
-      # install google chrome 
-      #----------------------------------------------   
-      - name: Install Chrome
-        run: |
-          sudo apt install google-chrome-stable
       #----------------------------------------------
       # Execute behave tests
       #----------------------------------------------
